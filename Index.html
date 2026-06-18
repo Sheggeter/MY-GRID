@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Smart Educational Content Learning System</title>
+
+<style>
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial,sans-serif;
+}
+
+body{
+background:#f4f4f4;
+}
+
+.page{
+display:none;
+padding:20px;
+text-align:center;
+}
+
+.active{
+display:block;
+}
+
+nav{
+background:#2196F3;
+padding:15px;
+}
+
+nav button{
+padding:10px 15px;
+margin:5px;
+border:none;
+background:white;
+cursor:pointer;
+border-radius:5px;
+}
+
+.login{
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+background:linear-gradient(135deg,#2196F3,#4CAF50);
+}
+
+.login-box{
+background:white;
+padding:30px;
+border-radius:15px;
+width:320px;
+}
+
+input{
+width:100%;
+padding:12px;
+margin:10px 0;
+}
+
+button{
+padding:10px 20px;
+cursor:pointer;
+}
+
+img{
+width:500px;
+margin:10px;
+border-radius:10px;
+}
+
+.lesson{
+background:white;
+padding:20px;
+margin:20px;
+border-radius:10px;
+}
+
+table{
+width:80%;
+margin:auto;
+border-collapse:collapse;
+background:white;
+}
+
+table,th,td{
+border:1px solid black;
+padding:10px;
+}
+
+video{display:inline-block
+width: 100px;
+max: width 100%;;
+margin: 10px;
+}
+
+.reward{
+font-size:40px;
+}
+</style>
+
+</head>
+<body>
+
+
+<div id="loginPage" class="login">
+
+<div class="login-box">
+
+<h2>Student Login</h2>
+
+<input type="text" placeholder="Username">
+
+<input type="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+</div>
+
+</div>
+
+
+<div id="homePage" class="page">
+
+<nav>
+<button onclick="showPage('homePage')">Home</button>
+<button onclick="showPage('lessonsPage')">Lessons</button>
+<button onclick="showPage('videosPage')">Videos</button>
+<button onclick="showPage('quizPage')">Quiz</button>
+<button onclick="showPage('progressPage')">Progress</button>
+<button onclick="logout()">Logout</button>
+</nav>
+
+<h1>SMART EDUCATIONAL CONTENT LEARNING SYSTEM</h1>
+
+<img src="https://images.unsplash.com/photo-1509062522246-3755977927d7?w=600">
+
+<p>
+Welcome to our Smart Interactive Mathematics Learning System.
+</p>
+
+</div>
+
+
+<div id="lessonsPage" class="page">
+
+<nav>
+<button onclick="showPage('homePage')">Home</button>
+<button onclick="showPage('lessonsPage')">Lessons</button>
+<button onclick="showPage('videosPage')">Videos</button>
+<button onclick="showPage('quizPage')">Quiz</button>
+<button onclick="showPage('progressPage')">Progress</button>
+</nav>
+
+<h1>Mathematics Lessons</h1>
+
+<div class="lesson">
+<h2>Addition</h2>
+<p>5 + 3 = 8</p>
+</div>
+
+<div class="lesson">
+<h2>Subtraction</h2>
+<p>8 - 3 = 5</p>
+</div>
+
+<div class="lesson">
+<h2>Multiplication</h2>
+<p>4 × 2 = 8</p>
+</div>
+
+<div class="lesson">
+<h2>Division</h2>
+<p>8 ÷ 2 = 4</p>
+</div>
+
+<div class="lesson">
+<h2>Fractions</h2>
+<p>1/2 + 1/2 = 1</p>
+</div>
+
+</div>
+
+
+<div id="videosPage" class="page">
+
+<nav>
+<button onclick="showPage('homePage')">Home</button>
+<button onclick="showPage('lessonsPage')">Lessons</button>
+<button onclick="showPage('videosPage')">Videos</button>
+<button onclick="showPage('quizPage')">Quiz</button>
+<button onclick="showPage('progressPage')">Progress</button>
+</nav>
+
+<h1>Educational Videos</h1>
+
+<video controls>
+<source src="video1.mp4" type="video1/mp4">
+</video>
+
+
+
+
+
+
+
+
+<p>Mathematics videos .</p>
+
+</div>
+
+
+<div id="quizPage" class="page">
+
+<nav>
+<button onclick="showPage('homePage')">Home</button>
+<button onclick="showPage('lessonsPage')">Lessons</button>
+<button onclick="showPage('videosPage')">Videos</button>
+<button onclick="showPage('quizPage')">Quiz</button>
+<button onclick="showPage('progressPage')">Progress</button>
+</nav>
+
+<h1>Quiz</h1>
+
+<h3>1. 5 + 3 = ?</h3>
+
+<button onclick="answer(true)">8</button>
+<button onclick="answer(false)">6</button>
+<button onclick="answer(false)">10</button>
+
+<br><br>
+
+<h3>2. 10 - 5 = ?</h3>
+
+<button onclick="answer(true)">5</button>
+<button onclick="answer(false)">4</button>
+<button onclick="answer(false)">6</button>
+
+</div>
+
+
+<div id="progressPage" class="page">
+
+<nav>
+<button onclick="showPage('homePage')">Home</button>
+<button onclick="showPage('lessonsPage')">Lessons</button>
+<button onclick="showPage('videosPage')">Videos</button>
+<button onclick="showPage('quizPage')">Quiz</button>
+<button onclick="showPage('progressPage')">Progress</button>
+</nav>
+
+<h1>Student Progress</h1>
+
+<table>
+<tr>
+<th>Lesson</th>
+<th>Status</th>
+</tr>
+
+<tr>
+<td>Addition</td>
+<td>Completed</td>
+</tr>
+
+<tr>
+<td>Subtraction</td>
+<td>Completed</td>
+</tr>
+
+<tr>
+<td>Multiplication</td>
+<td>Completed</td>
+</tr>
+
+<tr>
+<td>Division</td>
+<td>Completed</td>
+</tr>
+
+<tr>
+<td>Fractions</td>
+<td>Completed</td>
+</tr>
+
+</table>
+
+<br>
+
+<h2>Rewards</h2>
+
+<div class="reward">
+⭐ ⭐ ⭐
+<br>
+🏅
+<br>
+📜
+</div>
+
+</div>
+
+<script>
+
+function login(){
+document.getElementById("loginPage").style.display="none";
+document.getElementById("homePage").classList.add("active");
+}
+
+function showPage(page){
+
+let pages=document.querySelectorAll(".page");
+
+pages.forEach(p=>{
+p.classList.remove("active");
+});
+
+document.getElementById(page).classList.add("active");
+}
+
+function logout(){
+location.reload();
+}
+
+function answer(correct){
+
+if(correct){
+alert("Correct Answer");
+}else{
+alert("Wrong Answer");
+}
+
+}
+
+</script>
+
+</body>
+</html>
